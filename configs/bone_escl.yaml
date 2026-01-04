@@ -1,0 +1,97 @@
+# Setting
+gpus: [0]
+seed: 32
+debug: False
+pretrained_path:
+work_dir: ./workdir/Bone_ESCL
+no_progress_bar: False
+
+# Visualization
+visualization_class: 0
+visualization_sample: 0
+visualization_frames: []
+
+# Data Loader
+dataset: bone
+dataset_args:
+  bone:
+    train_batch_size: 32
+    eval_batch_size: 32
+    num_frame: 48
+    inputs: B  # Use bone data only
+    root_folder: ./data
+
+# Random Move Data Augmentation
+random_move_args:
+  enable: True
+  rotation_angles: [-5, 0, 5]  # Rotation angle options (degrees)
+  scale_factors: [0.95, 1.0, 1.05]        # Scale factor options
+  translation_x: [-0.1, 0.0, 0.1]  # X translation options
+  translation_y: [-0.1, 0.0, 0.1]  # Y translation options
+
+# Model
+model_type: CTRGCN
+model_args:
+  num_class: 4
+  num_point: 16
+  num_person: 1
+  graph: src.dataset.graph.Graph
+  graph_args:
+    labeling_mode: spatial
+  in_channels: 3
+  drop_out: 0.1
+  adaptive: True
+  # Transformer parameters (enabled by default)
+  transformer_start_layer: 4  # Start using Transformer from layer 4
+  transformer_heads: 8
+  transformer_depth: 1
+  transformer_dropout: 0.1
+  # ESCL parameters
+  use_escl: true
+  escl_gamma: 0.5
+  escl_va_dict:
+    0: [0.81, 0.83]  # happy - initial value, will be adjusted during training
+    1: [0.27, 0.24]  # sad - initial value, will be adjusted during training
+    2: [0.17, 0.84]  # angry - initial value, will be adjusted during training
+    3: [0.52, 0.32]  # neutral - initial value, will be adjusted during training
+  # VA coordinate learning parameters
+  escl_va_lr_factor: 1.5  # VA coordinate learning rate factor relative to main model learning rate
+  escl_va_weight_decay: 0.0  # VA coordinate weight decay (regularization strength)
+  escl_va_constraint: true  # Whether to apply VA coordinate constraints (keep within reasonable range)
+  escl_va_constraint_range: 1.2  # VA coordinate constraint range (-1.2 to 1.2)
+  # Multi-center ESCL parameters
+  escl_use_multi_center: True  # Whether to use multi-center ESCL
+  escl_num_centers: 2  # Number of centers per emotion
+  escl_kl_weight: 0.01  # KL divergence regularization weight
+  # Sad expert module parameters
+  use_sad_expert: true  # Whether to enable Sad expert module
+  sad_expert_feat_dim: 256  # Sad expert input feature dimension
+  sad_expert_hidden: 16  # Sad expert hidden layer dimension
+  sad_expert_dropout: 0.3  # Sad expert dropout rate
+
+# Optimizer
+# SGD, Adam
+optimizer: SGD
+optimizer_args:
+  SGD:
+    lr: 0.05
+    momentum: 0.9
+    nesterov: True
+    weight_decay: 0.002
+  Adam:
+    lr: 0.001
+    betas: [0.9, 0.99]
+    weight_decay: 0.002
+
+# Scheduler
+# step, cosine
+lr_scheduler: step
+scheduler_args:
+  step:
+    max_epoch: 95
+    warm_up: 5
+    step_lr: 30
+    gamma: 0.1
+  cosine:
+    max_epoch: 65
+    warm_up: 5

@@ -44,7 +44,6 @@ CTR-Gait/
 ## 🛠️ Installation
 
 Clone the repository:
-(Note: Use the anonymous link provided in the paper during the review process)
 
 ```bash
 git clone [https://github.com/yeaoshuang/CTR-Gait]

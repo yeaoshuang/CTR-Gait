@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 ### 1. Download Dataset
 
-Please download the Emotion-Gait dataset from [\[INSERT DATASET LINK HERE\]](https://github.com/exped1230/BPM-GCN).
+Please download the Emotion-Gait dataset from [\[ HERE\]](https://github.com/exped1230/BPM-GCN).
 
 ### 2. Organize Directory
 
@@ -124,8 +124,6 @@ We provide pre-trained weights to reproduce the reported results.
 | Model | Modality | Accuracy | GFLOPs | Params | Download |
 |-------|----------|----------|--------|--------|----------|
 | CTR-Gait | Bone | 92.66% | 0.39G | 3.76M | https://github.com/yeaoshuang/CTR-Gait/releases/tag/v1.0 |
-
-(Note: Download link ensures anonymity for peer review)
 
 ## ⚖️ License
 

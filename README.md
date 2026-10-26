@@ -3,7 +3,7 @@
 <!-- `https://img.shields.io/badge/License-MIT-yellow.svg` ](https://opensource.org/licenses/MIT) -->
 <!-- `https://img.shields.io/badge/PyTorch-1.8%2B-orange` ]( `https://pytorch.org/)`  -->
 
-This repository contains the official PyTorch implementation of the paper: **"CTR-Gait: Semantic-Aware Contrastive Learning for Fine-Grained Gait Emotion Recognition"** (Submitted to *IEEE Transactions on Affective Computing*).
+This repository contains the official PyTorch implementation of the paper: **"CTR-Gait: Semantic-Aware Contrastive Learning for Fine-Grained Gait Emotion Recognition"**. The paper is available as an IEEE Transactions on Affective Computing preprint, DOI: [10.1109/TAFFC.2026.3723033](https://doi.org/10.1109/TAFFC.2026.3723033).
 
 ## 🚀 Introduction
 
@@ -137,5 +137,17 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 If you find this work useful for your research, please cite:
 
-(Citation details will be updated upon acceptance)
+```bibtex
+@article{ye2026ctrgait,
+  title   = {CTR-Gait: Semantic-Aware Contrastive Learning for Fine-Grained Gait Emotion Recognition},
+  author  = {Ye, Aoshuang and Chen, Chunjie and Wang, Zhuo and Chen, Zhujin and Zhang, Zhi and Zhang, Rong and Cao, Wujing and Wu, Xinyu},
+  journal = {IEEE Transactions on Affective Computing},
+  year    = {2026},
+  pages   = {1--14},
+  doi     = {10.1109/TAFFC.2026.3723033},
+  note    = {Preprint}
+}
+```
+
+A. Ye, C. Chen, Z. Wang, Z. Chen, Z. Zhang, R. Zhang, W. Cao, and X. Wu, "CTR-Gait: Semantic-Aware Contrastive Learning for Fine-Grained Gait Emotion Recognition," *IEEE Transactions on Affective Computing*, PrePrints, pp. 1-14, 2026, doi: 10.1109/TAFFC.2026.3723033.
 

@@ -44,6 +44,7 @@ CTR-Gait/
 ## 🛠️ Installation
 
 Clone the repository:
+(Note: Use the anonymous link provided in the paper during the review process)
 
 ```bash
 git clone [https://github.com/yeaoshuang/CTR-Gait]
@@ -64,7 +65,7 @@ pip install -r requirements.txt
 
 ### 1. Download Dataset
 
-Please download the Emotion-Gait dataset from [\[ HERE\]](https://github.com/exped1230/BPM-GCN).
+Please download the Emotion-Gait dataset from [\[INSERT DATASET LINK HERE\]](https://github.com/exped1230/BPM-GCN).
 
 ### 2. Organize Directory
 
@@ -94,18 +95,20 @@ This will generate the processed .npz files required for training in the data/ d
 To train the CTR-Gait model using Bone modality with ESCL enabled:
 
 ```bash
-python main.py --config configs/bone_escl.yaml
+python main.py --config bone_escl
 ```
 
-Check points will be saved in the work_dir specified in the config file.
+`--config` takes the config name without the `.yaml` suffix. Check points will be saved in the work_dir specified in the config file.
 
 ### Evaluation
 
-To evaluate a pre-trained model on the test set:
+To evaluate a pre-trained model on the test set, download the checkpoint from the [v1.0 release](https://github.com/yeaoshuang/CTR-Gait/releases/download/v1.0/bone_escl_CTRGCN_bone.pth.tar) and place it at `weights/bone_escl_CTRGCN_bone.pth.tar`. The checkpoint is distributed as a release asset and is not included in the auto-generated source archive.
 
 ```bash
-python main.py --config configs/bone_escl.yaml --evaluate --weights weights/bone_escl_CTRGCN_bone.pth
+python main.py --config bone_escl --evaluate --pretrained_path weights
 ```
+
+`--pretrained_path` takes a directory rather than a file, and the checkpoint name must stay `bone_escl_CTRGCN_bone.pth.tar`.
 
 > Expected Result: Accuracy ~92.66%
 
@@ -123,7 +126,9 @@ We provide pre-trained weights to reproduce the reported results.
 
 | Model | Modality | Accuracy | GFLOPs | Params | Download |
 |-------|----------|----------|--------|--------|----------|
-| CTR-Gait | Bone | 92.66% | 0.39G | 3.76M | https://github.com/yeaoshuang/CTR-Gait/releases/tag/v1.0 |
+| CTR-Gait | Bone | 92.66% | 0.39G | 3.76M | [bone_escl_CTRGCN_bone.pth.tar](https://github.com/yeaoshuang/CTR-Gait/releases/download/v1.0/bone_escl_CTRGCN_bone.pth.tar) |
+
+(Note: Download link ensures anonymity for peer review)
 
 ## ⚖️ License
 

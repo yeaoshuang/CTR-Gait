@@ -127,7 +127,6 @@ We provide pre-trained weights to reproduce the reported results.
 |-------|----------|----------|--------|--------|----------|
 | CTR-Gait | Bone | 92.66% | 0.39G | 3.76M | [bone_escl_CTRGCN_bone.pth.tar](https://github.com/yeaoshuang/CTR-Gait/releases/download/v1.0/bone_escl_CTRGCN_bone.pth.tar) |
 
-(Note: Download link ensures anonymity for peer review)
 
 ## ⚖️ License
 
